@@ -1,26 +1,30 @@
 class Solution {
 public:
-    int computeSum(vector<int>& nums, int d) {
+    int check(vector<int> nums,int d){
         int sum = 0;
-        for (int x : nums) {
-            sum += (x + d - 1) / d; // ceil(x / d)
+        for(int i = 0;i<nums.size();i++){
+            int div = ceil((float) nums[i] / d);
+            sum+=div;
         }
         return sum;
     }
-
     int smallestDivisor(vector<int>& nums, int threshold) {
-        int low = 1;
-        int high = *max_element(nums.begin(), nums.end());
-
-        while (low < high) {
-            int mid = low + (high - low) / 2;
-
-            if (computeSum(nums, mid) <= threshold) {
-                high = mid;
-            } else {
-                low = mid + 1;
+        int maxi = 0;
+        for(int i: nums){
+            maxi = max(maxi,i);
+        }
+        int st = 1;
+        int en = maxi;
+        while(st < en){
+            int mid = st + (en - st) / 2;
+            int div = check(nums,mid);
+            if(div <= threshold){
+                en = mid;
+            } 
+            else{
+                st = mid + 1;
             }
         }
-        return low;
+        return st;
     }
 };
