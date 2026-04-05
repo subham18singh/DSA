@@ -1,36 +1,41 @@
 class Solution {
 public:
-    int countSubarrays(vector<int>& nums, int maxSum) {
+    bool check(vector<int> arr,int mid,int k){
+        int sum = 0;
         int cnt = 1;
-        long long sum = 0;
 
-        for (int i = 0; i < nums.size(); i++) {
-            if (sum + nums[i] <= maxSum) {
-                sum += nums[i];
-            } else {
+        for(int i= 0;i<arr.size();i++){
+            if(sum + arr[i] <= mid){
+                sum+=arr[i];
+            }
+            else{
                 cnt++;
-                sum = nums[i];
+                sum = arr[i];
+            }
+            if(cnt > k){
+                return false;
             }
         }
-        return cnt;
+        return true;
     }
-
     int splitArray(vector<int>& nums, int k) {
-        int low = *max_element(nums.begin(), nums.end());
-        int high = accumulate(nums.begin(), nums.end(), 0);
-
-        while (low <= high) {
+        int low = 0;
+        int high = 0;
+        for(int i : nums){
+            low = max(low,i);
+            high += i;
+        }
+        int ans;
+        while(low <= high){
             int mid = low + (high - low) / 2;
-
-            int cnt = countSubarrays(nums, mid);
-
-            if (cnt > k) {
-                low = mid + 1; // need bigger sum
-            } else {
-                high = mid - 1; // try smaller
+            if(check(nums,mid,k)){
+                ans = mid;
+                high = mid - 1;
+            }
+            else{
+                low = mid + 1;
             }
         }
-
-        return low;
+        return ans;
     }
 };
