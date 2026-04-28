@@ -24,7 +24,7 @@ public:
             slow = head;
             while(true){
                 if(slow == fast){
-                    return slow;
+                    return fast;
                 }
                 slow = slow->next;
                 fast = fast->next;
