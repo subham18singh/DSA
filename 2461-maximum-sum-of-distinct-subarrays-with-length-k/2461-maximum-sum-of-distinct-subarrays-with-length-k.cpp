@@ -4,7 +4,7 @@ public:
         long long sum = 0;
         long long mx = 0;
         int n = nums.size();
-        map<int,int> mp;
+        unordered_map<int,int> mp;
         for(int i = 0;i<k;i++){
             sum+=nums[i];
             mp[nums[i]]++;
