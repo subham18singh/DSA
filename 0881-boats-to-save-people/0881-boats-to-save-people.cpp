@@ -12,14 +12,8 @@ public:
                 en--;
             }
             else{
-                if(people[st] >= people[en]){
-                    boat++;
-                    st++;
-                }
-                else{
-                    en--;
-                    boat++;
-                }
+                en--;
+                boat++;
             }
         }
         return boat;
