@@ -6,9 +6,9 @@ public:
         int mx = 0;
         vector<int> vc(26,0);
         for(int i = 0;i<s.length();i++){
-            vc[s[i] - 'A']++;
+            vc[s[i]-'A']++;
             maxc = max(maxc,vc[s[i]-'A']);
-            while((i-st +1 ) - maxc > k){
+            while((i-st+1)-maxc > k){
                 vc[s[st]-'A']--;
                 st++;
             }
