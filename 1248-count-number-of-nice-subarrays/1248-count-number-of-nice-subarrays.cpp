@@ -1,24 +1,21 @@
 class Solution {
 public:
-    int count(vector<int>& nums, int k){
-        int st = 0;
-        int cnt = 0;
-        int mx = 0;
-        for(int i = 0;i<nums.size();i++){
-            if(nums[i]%2 != 0){
-                cnt++;
-            }
-            while(cnt > k){
-                if(nums[st]%2 != 0){
-                    cnt--;
-                }
-                st++;
-            }
-            mx+=(i-st+1);
-       }
-       return mx;
-    }
     int numberOfSubarrays(vector<int>& nums, int k) {
-        return count(nums,k) - count(nums,k-1);
+        map<int, int> mp;
+        mp[0] = 1;
+
+        int cnt = 0;
+        int odd = 0;
+
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] % 2 != 0) {
+                odd++;
+            }
+            if(mp.find(odd - k) != mp.end()){
+                cnt+=mp[odd-k];
+            }
+            mp[odd]++;
+        }
+        return cnt;
     }
 };
