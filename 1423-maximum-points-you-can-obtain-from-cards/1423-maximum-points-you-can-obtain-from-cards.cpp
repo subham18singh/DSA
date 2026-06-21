@@ -10,11 +10,10 @@ public:
             return total;
         }
         int sum = 0;
-        int mn;
         for(int i = 0;i<d;i++){
             sum+=cardPoints[i];
         }
-        mn = sum;
+        int mn = sum;
         for(int i = d;i<cardPoints.size();i++){
             sum-=cardPoints[i-d];
             sum+=cardPoints[i];
