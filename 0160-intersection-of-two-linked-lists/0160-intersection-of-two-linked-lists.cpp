@@ -21,7 +21,7 @@ public:
             cnt2++;
             tempB = tempB->next;
         }
-        int dif = max(cnt1,cnt2) - min(cnt1,cnt2);
+        int dif = abs(cnt1-cnt2);
         ListNode* skipb = headB;
         ListNode* skip = headA;
         if(cnt1 > cnt2){
