@@ -8,10 +8,10 @@ public:
             }
             ans+=s[i];
         }
-        while(!ans.empty() && ans.front() == ' '){
+        while(ans.front() == ' ' && !ans.empty()){
             ans.erase(ans.begin());
         }
-        while(!ans.empty() && ans.back() == ' '){
+        while(ans.back() == ' '&& !ans.empty()){
             ans.pop_back();
         }
         int st = 0;
