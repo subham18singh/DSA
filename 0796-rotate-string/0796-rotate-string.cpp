@@ -4,7 +4,6 @@ public:
         if(s.length() != goal.length()){
             return false;
         }
-        string temp = s+s;
 
         // correct but not optimal jsut to clear the logic;
 
@@ -27,6 +26,6 @@ public:
         // } 
         // return false;      
 
-        return temp.find(goal) != string::npos;
+        return (s+s).find(goal) != string::npos;
     }
 };
