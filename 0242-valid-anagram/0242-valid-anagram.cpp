@@ -4,13 +4,13 @@ public:
         if(s.length() != t.length()){
             return false;
         }
-        map<char,int> mp;
+        vector<int> mp(26,0);
         for(int i = 0;i<s.length();i++){
-            mp[s[i]]++;
-            mp[t[i]]--;
+            mp[s[i] - 'a']++;
+            mp[t[i] - 'a']--;
         }
-        for(auto it : mp){
-            if(it.second  != 0){
+        for(int it : mp){
+            if(it != 0){
                 return false;
             }
         }
