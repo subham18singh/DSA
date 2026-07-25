@@ -5,17 +5,14 @@ public:
         for(int i = 0;i<s.length();i++){
             mp[s[i]]++;
         }
-        vector<pair<int,char>> mp1;
+        vector<vector<char>> mp1(s.size() + 1);
         for(auto it:mp){
-            mp1.push_back({it.second,it.first});
+            mp1[it.second].push_back(it.first);
         }
-        sort(mp1.begin(),mp1.end(), greater<pair<int,char>>());
         string ans = "";
-        for(auto it:mp1){
-            int n = it.first;
-            while(n!=0){
-                ans+=it.second;
-                n--;
+        for(int i = s.size();i>0;i--){
+            for(int j = 0;j<mp1[i].size();j++){
+                ans.append(i,mp1[i][j]);
             }
         }
         return ans;
