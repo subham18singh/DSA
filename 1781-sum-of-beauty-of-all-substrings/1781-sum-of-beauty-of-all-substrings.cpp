@@ -3,9 +3,9 @@ public:
     int beautySum(string s) {
         int n = s.length();
         int ans = 0;
-        for (int i = 0; i < n; i++) {
+        for(int i = 0;i<n;i++){
             int arr[26] = {0};
-            for (int j = i; j < n; j++) {
+            for(int j = i;j<n;j++){
                 arr[s[j] - 'a']++;
                 int mx = 0;
                 int mn = INT_MAX;
