@@ -31,11 +31,6 @@ public:
                 return 2;
             }
         }
-
-        if(mn == s[n - 1] && mx == s[0]){
-            return 3;
-        }
-        
-        return 2;
+        return 3;
     }
 };
