@@ -13,7 +13,7 @@ public:
         if(isSorted(s)){
             return 0;
         }
-        if(n == 2 && !isSorted(s)){
+        if(n == 2){
             return -1;
         }
         char mn = s[0];
